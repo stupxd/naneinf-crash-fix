@@ -1,0 +1,32 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 69
+
+[[patches]]
+[patches.pattern]
+target = 'functions/misc_functions.lua'
+pattern = "if G.GAME.round_scores[score] and math.floor(amt) > G.GAME.round_scores[score].amt then"
+position = "at"
+payload = '''
+if G.GAME.round_scores[score] and math.floor(amt) > (G.GAME.round_scores[score].amt or 0) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = "G.FUNCS.evaluate_round = function()"
+position = "after"
+payload = '''
+    G.GAME.chips = G.GAME.chips or math.huge -- if chips is nil then we had naneinf. if this is set to 0 then it'll trigger mr. bones which shouldn't happen'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = "function Game:update_hand_played(dt)"
+position = "after"
+payload = '''
+G.GAME.chips = (G.GAME.chips or 0)
+G.GAME.blind.chips = (G.GAME.blind.chips or math.huge)'''
+match_indent = true
