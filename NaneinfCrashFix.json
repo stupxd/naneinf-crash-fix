@@ -1,0 +1,13 @@
+{
+  "id": "nancrashfix",
+  "name": "NaneinfCrashFix", 
+  "display_name": "Naneinf Crash Fix",
+  "author": ["stupxd aka stupid"],
+  "description": "Fixes several crashes that happen after achieving naneinf and reloading the run.",
+  "prefix": "nancrashfix",
+  "main_file": "mod.lua",
+  "badge_colour": "9C93FF",
+  "badge_text_colour": "FFFFFF",
+  "priority": 69,
+  "version": "1.0.4",
+}
