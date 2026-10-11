@@ -1,6 +1,6 @@
 {
   "id": "nancrashfix",
-  "name": "Naneinf Crash Fix", 
+  "name": "NaneinfCrashFix", 
   "display_name": "Naneinf Crash Fix",
   "author": ["stupxd aka stupid"],
   "description": "Fixes several crashes that happen after achieving naneinf and reloading the run.",
